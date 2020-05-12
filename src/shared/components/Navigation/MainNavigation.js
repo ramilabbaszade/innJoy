@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import MainHeader from "./MainHeader";
@@ -7,6 +7,7 @@ import SideDrawer from "./SideDrawer";
 import Backdrop from "../UIElements/Backdrop";
 
 import brandLogo from '../../../assets/innjoy.svg'
+import brandLogoW from '../../../assets/innjoy-white.svg'
 
 import './MainNavigation.scss'
 
@@ -19,6 +20,16 @@ const MainNavigation = (props) => {
     const closeDrawer = () => {
         setDrawerIsOpen(false)
     }
+    const [scroll, setScroll] = useState(0);
+
+    useEffect(() => {
+      document.addEventListener("scroll", () => {
+        const scrollCheck = window.scrollY >= 130;
+        if (scrollCheck !== scroll) {
+          setScroll(scrollCheck);
+        }
+      });
+    });
 
     return (<React.Fragment>
         {drawerIsOpen && <Backdrop onClick={closeDrawer} />}
@@ -35,10 +46,10 @@ const MainNavigation = (props) => {
                 <span />
             </button>
             <div className="main-navigation__brand">
-                <Link to="/"><img src={brandLogo} alt="" /></Link>
+                <Link to="/"><img src={scroll? brandLogo: brandLogoW} alt="" /></Link>
             </div>
             <nav className="main-navigation__header-nav">
-                <NavLinks />
+                <NavLinks scroll={scroll} />
             </nav>
         </MainHeader>
     </React.Fragment>

@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from "react";
 
-import './MainHeader.scss'
+import "./MainHeader.scss";
 
-const MainHeader = props => {
-    return <header className="main-header"> {props.children} </header>
-}
+const MainHeader = (props) => {
+  const [scroll, setScroll] = useState(0);
 
-export default MainHeader
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY >= 130;
+      if (scrollCheck !== scroll) {
+        setScroll(scrollCheck);
+      }
+    });
+  });
+  return <header className='main-header' style={scroll?{background:"white"}:null}> {props.children} </header>;
+};
+
+export default MainHeader;
