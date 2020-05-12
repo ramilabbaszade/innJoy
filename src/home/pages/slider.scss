@@ -1,0 +1,38 @@
+.slider{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    overflow: hidden;
+    background: black;
+}
+
+.slide{
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    transition: .5s;
+    overflow: hidden;
+}
+
+%btn-styles{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+    height: 80%;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+#goLeft{
+    left: 0;
+    @extend %btn-styles;
+}
+
+#goRight{
+    right: 0;
+    @extend %btn-styles;
+}

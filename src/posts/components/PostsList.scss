@@ -1,0 +1,73 @@
+hr {
+    opacity: .4;
+    margin: 1.5rem 0 2rem 0;
+    width: 40%;
+    text-align: center;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: auto;
+    background: white;
+}
+
+.input-search {
+    width: 100%;
+}
+
+.input-search input {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.335);
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: 0.5px solid rgba(139, 139, 139, 0.534);
+    width: auto;
+}
+
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border: 0.2px solid rgba(133, 133, 133, 0.479);
+    border-radius: 50px 50px 50px 50px;
+    margin-bottom: 2rem;
+    box-shadow: rgb(129, 129, 129) 1px 1px 5px 1px;
+
+}
+.blog-post:hover {
+    box-shadow: rgb(129, 129, 129) 1px 4px 5px 1px;
+
+}
+
+.post-image {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50px 50px 0 0;
+}
+
+.post-content {
+    padding: 1.5rem 2rem 3rem 2rem;
+}
+
+.post-content span {
+    opacity: .5;
+}
+
+.post-content h2 {
+    margin-bottom: 3px;
+    font-weight: 400;
+    color: rgb(27, 24, 24);
+}
+
+.post-content .post-description {
+    margin-top: 1rem;
+    text-align: justify;
+    opacity: 0.8;
+}

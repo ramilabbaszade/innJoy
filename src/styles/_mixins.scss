@@ -1,0 +1,40 @@
+// mixins
+
+@mixin container {
+    width: 1170px;
+    height: auto;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-extralarge) {
+        width: 700px;
+    }
+    @media (max-width: $breakpoint-medium) {
+        width: 550px;
+    }
+    @media (max-width: $breakpoint-small ) {
+        width: 410px;
+    }
+    @media (max-width: $breakpoint-tiny ) {
+        width: 310px;
+    }
+}
+
+@mixin primaryfont{
+    font-family: 'Abel', sans-serif;
+}
+@mixin secondaryfont{
+    //hand-writing
+    font-family: 'Euphoria Script', cursive;
+}
+
+@mixin breaker {
+    .breaker {
+        margin: 3rem 0;
+
+        hr {
+            width: 11%;
+            margin: 0 auto;
+            border: 1px dashed $primarycolor;
+        }
+    }
+}
