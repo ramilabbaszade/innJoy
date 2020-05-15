@@ -1,0 +1,11 @@
+[33mcommit efff656be46e51f19d58aa201591ba0673cea639[m[33m ([m[1;36mHEAD -> [m[1;32mmodified-slider[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Ramil Abbaszade <abbasovramil65@gmail.com>
+Date:   Tue May 12 22:25:16 2020 +0400
+
+    first-commit
+
+[33mcommit 40617d97795c03005d5ca5cec33d10d8cbf51f0c[m
+Author: Ramil Abbaszade <abbasovramil65@gmail.com>
+Date:   Tue May 5 01:30:52 2020 +0400
+
+    Initialize project using Create React App

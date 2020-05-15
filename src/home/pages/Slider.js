@@ -19,7 +19,7 @@ const Slider = () => {
   ];
 
   useEffect(()=>{
-    setTimeout(()=>(goRight()),5000)
+    setTimeout(()=>{goRight()},5000)
   })
 
   const goLeft = () => {
