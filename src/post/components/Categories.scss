@@ -1,0 +1,22 @@
+@import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
+
+.category{
+    margin-top: 2rem;
+
+    h2{
+        margin: .7rem 0;
+    }
+
+    &__tag{
+        padding: 5px;
+        background-color: $blue;
+        color: white;
+        width: max-content;
+        font-size: 15px;
+        border-radius: 12px;
+        opacity: .6;
+        text-align: center;
+        margin: 1rem 5px 0 0;
+    }
+}

@@ -1,0 +1,24 @@
+.post-content{
+
+    &__description{
+        color: gray;
+    }
+    &__tag{
+        background-color: gray;
+        padding: 5px;
+        color: white;
+        width: max-content;
+        font-size: 12px;
+        border-radius: 12px;
+        opacity: .5;
+        margin: 1rem 0;
+    }
+
+    img{
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+    }
+    
+
+}

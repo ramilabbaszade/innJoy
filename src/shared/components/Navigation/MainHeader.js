@@ -13,7 +13,7 @@ const MainHeader = (props) => {
       }
     });
   });
-  return <header className='main-header' style={scroll?{background:"white"}:null}> {props.children} </header>;
+  return <header className={`main-header ${props.transparent}`} style={scroll?{background:"white"}:null}> {props.children} </header>;
 };
 
 export default MainHeader;

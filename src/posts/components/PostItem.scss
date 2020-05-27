@@ -1,0 +1,74 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+.post-item {
+    display: flex;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.329);
+    transition: .5s;
+    color: black;
+
+    &:hover {
+        box-shadow: 1px 1px 2px 0px rgb(0, 0, 0);
+        transition: .5s;
+
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    .post-item-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1rem;
+
+        .post-tag {
+            background-color: $gray;
+            padding: 5px;
+            width: max-content;
+            font-size: 12px;
+            border-radius: 12px;
+            opacity: .5;
+        }
+
+        .post-time {
+            font-size: 10px;
+            opacity: .5;
+        }
+
+        h2 {
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 3.6em;
+            line-height: 1.2em;
+            font-size: 22px;
+        }
+
+
+        p {
+            text-align: justify;
+            font-size: 15px;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 3.6em;
+            line-height: 1.2em;
+
+            @media (max-width: 768px) {
+                margin: 1rem 0;
+            }
+        }
+    }
+
+    img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+}

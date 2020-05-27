@@ -1,0 +1,60 @@
+@import '../../styles/mixins';
+@import '../../styles/_variables.scss';
+
+.quoter {
+    display: flex;
+    position: relative;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    background: $darkcolor;
+    z-index: 5;
+    padding: 1rem;
+    .quote {
+        min-width: 100%;
+        transition: .5s;
+        overflow: hidden;
+        flex-direction: column;
+        color: white;
+        
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        p{
+            width: 60%;
+        }
+    }
+
+    button {
+        i {
+            color: white;
+        }
+    }
+}
+
+
+%btn-styles {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+    height: 80%;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#goLeft {
+    left: 0;
+    @extend %btn-styles;
+}
+
+#goRight {
+    right: 0;
+    @extend %btn-styles;
+}

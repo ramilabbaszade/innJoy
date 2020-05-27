@@ -6,8 +6,8 @@ import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../UIElements/Backdrop";
 
-import brandLogo from '../../../assets/innjoy.svg'
-import brandLogoW from '../../../assets/innjoy-white.svg'
+import brandLogo from '../../../img/innjoy.svg'
+import brandLogoW from '../../../img/innjoy-white.svg'
 
 import './MainNavigation.scss'
 
@@ -39,8 +39,8 @@ const MainNavigation = (props) => {
                 <NavLinks />
             </nav>
         </SideDrawer>
-        <MainHeader>
-            <button className="main-navigation__menu-btn" onClick={openDrawer}>
+        <MainHeader transparent={props.transparent}>
+            <button className={`main-navigation__menu-btn ${scroll&&'bg'}` } onClick={openDrawer}>
                 <span />
                 <span />
                 <span />

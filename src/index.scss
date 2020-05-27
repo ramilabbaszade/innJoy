@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -9,13 +11,41 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background: white;
 }
 a{
-  color: white;
+  color: black;
   text-decoration: none;
+}
+main{
+  padding-top: 7rem;
+}
+
+input, textarea, select, button{
+  margin: .5rem 0 1rem 0;
+  padding: 5px;
+  border: 1px solid rgba(138, 138, 138, 0.644);
+}
+
+.btn-danger {
+  background-color: rgb(238, 28, 28);
+  color: white;
+  a{color: white;}
+}
+
+.btn-warning {
+  background-color: rgb(246, 246, 10);
+  color: white;
+}
+.btn-blue {
+  background-color: rgb(0, 110, 255);
+  a{color: white;}
+}
+
+.btn-success {
+  background-color: rgb(4, 168, 4);
+  color: white;
+  a{color: white;}
 }
 
 .slide-in-left-enter {

@@ -7,9 +7,15 @@
   height: 5rem;
   display: flex;
   align-items: center;
-  background: transparent;
+  background-color: $darkcolor;
+  box-shadow: rgba(0, 0, 0, 0.418) 0px 0px 5px 0px;
   padding: 2rem 2rem;
   z-index: 99;
+  transition: .3s;
+}
+.transparent {
+  background: transparent;
+  box-shadow: none;
 }
 
 @media (min-width: 768px) {

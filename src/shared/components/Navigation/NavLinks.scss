@@ -18,15 +18,28 @@
     padding: 0.5rem;
 }
 
-.nav-links li .scrollLink{
+.nav-links li .scrollLink {
     color: black;
 }
 
 .nav-links a:hover,
 .nav-links a:active,
 .nav-links a.active {
-    background: $primarycolor;
-    color: black;
+    border-bottom: 1px solid $primarycolor;
+}
+
+.innjoy-sport-link {
+    background-color: $yellow;
+    padding: .5rem;
+    border-radius: 25px 5px 25px 5px;
+    margin-left: 5px;
+    transition: 1s;
+
+
+    &:hover {
+        border-radius: 10px 10px 10px 10px;
+        transition: 1s;
+    }
 }
 
 
