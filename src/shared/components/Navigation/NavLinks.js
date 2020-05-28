@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
-// import sport from '../../../img/innjoy-sport'
 
 import "./NavLinks.scss";
 
