@@ -5,9 +5,9 @@ import './PostItem.scss'
 
 const PostItem = props => {
     return (
-        <Link to={`/blog/${props.postId}`}>
+        <Link to={`/blog/${props.id}`}>
         <div className="post-item">
-            <img src={props.image} alt="" />
+            <img src={props.image} alt={props.title} />
             <div className="post-item-info">
                 <h2> {props.title} </h2>
                 <p>

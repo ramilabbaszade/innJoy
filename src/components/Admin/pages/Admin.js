@@ -1,64 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 import CategoryList from "../components/CategoryList";
-import SliderList from "../components/SliderList";
 
 import "./admin.scss";
 
-const DUMMY_POSTS = [
-  {
-    id: 1,
-    title:
-      "Welcome to our blog post. Welcome to our blog post.Welcome to our blog post",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    image: "",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    time: "27 MAY 2020",
-    postId: "p1",
-    category: "english",
-  },
-  {
-    id: 2,
-    title: "Welcome to our blog post,",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    image: "",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    time: "27 MAY 2020",
-    postId: "p2",
-    category: "english",
-  },
-  {
-    id: 3,
-    title: "Welcome to 3 post",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    image: "",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    time: "27 MAY 2020",
-    postId: "p3",
-    category: "english",
-  },
-  {
-    id: 4,
-    title: "Welcome to our 4. blog post,",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    image: "",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-    time: "27 MAY 2020",
-    postId: "p4",
-    category: "english",
-  },
-];
-
-const Admin = () => {
+const Admin = props => {
+  const [posts, setPosts] = useState([])
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:5000/admin")
+      .then(res => {return (setPosts(res.data.posts),setCategories(res.data.categories))})
+      .catch(error => console.log(error))
+  }, [])
   return (
     <div className='admin'>
       <div className="admin-header">
@@ -84,34 +39,32 @@ const Admin = () => {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody>
-            {DUMMY_POSTS.map((post) => {
-              return (
-                <tr key={post.id}>
-                  <td> {post.id} </td>
-                  <td> {post.title} </td>
-                  <td> {post.time} </td>
-                  <td>
-                    <button className='btn-warning' value='EDIT'>
-                      <Link to={`/post/${post.postId}`}>EDIT</Link>
-                    </button>
-                  </td>
-                  <td>
-                    <button onClick={e => { console.log(`${post.title} removed from list`) }} className='btn-danger'>DELETE</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
+          {posts.map((post) => {
+            return ( <tbody key={post._id}>
+                <tr key={post._id}>
+                <td> {post._id} </td>
+                <td> {post.title} </td>
+                <td> {post.time} </td>
+                <td>
+                  <button className='btn-warning' value='EDIT'>
+                    <Link to={`/post/${post._id}`}>EDIT</Link>
+                  </button>
+                </td>
+                <td>
+                  <button onClick={e => { console.log(`${post.title} removed from list`) }} className='btn-danger'>DELETE</button>
+                </td>
+              </tr>
+          </tbody>)
+          })}
         </table>
       </div>
 
       <div className='category-list-admin'>
-        <CategoryList />
+        <CategoryList categories={categories} />
       </div>
 
       <div className='slider-list-admin'>
-        <SliderList />
+        {/* <SliderList  /> */}
       </div>
     </div>
   );

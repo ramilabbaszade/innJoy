@@ -1,13 +1,6 @@
 import React from 'react'
 
-const DUMMY_CATEGORIES = [
-    { id: "1", name: "english" },
-    { id: "2", name: "russian" },
-    { id: "3", name: "ielts" },
-    { id: "4", name: "sat" },
-  ];
-
-const CategoryList = () => {
+const CategoryList = (props) => {
     return (
         <div>
             <h2>Category List</h2>
@@ -19,17 +12,18 @@ const CategoryList = () => {
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {DUMMY_CATEGORIES.map((c) => {
-                        return <tr key={c.id}>
-                            <td>{c.id}</td>
-                            <td>{c.name}</td>
+                {props.categories.map(category => {
+                    // console.log(`Category: ${category}`)
+                    return (<tbody key={category._id}>
+                        <tr key={category._id}>
+                            <td>{category._id}</td>
+                            <td>{category.name}</td>
                             <td>
-                                <button onClick={e => { console.log(`${c.name} removed from list`) }} className='btn-danger'>DELETE</button>
+                                <button onClick={e => { console.log(`${category.name} removed from list`) }} className='btn-danger'>DELETE</button>
                             </td>
                         </tr>
-                    })}
-                </tbody>
+                    </tbody>)
+                })}
             </table>
         </div>
     )

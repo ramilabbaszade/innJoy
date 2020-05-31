@@ -17,12 +17,12 @@ const PostsList = (props) => {
       {props.posts.map((post) => {
         return (
           <PostItem
-            key={post.id}
-            id={post.id}
-            image={post.image}
+            key={post._id}
+            id={post._id}
+            image={post.post_image}
             title={post.title}
             description={post.description}
-            time={post.time}
+            time={post.date}
             postId = {post.postId}
             category={post.category}
           />

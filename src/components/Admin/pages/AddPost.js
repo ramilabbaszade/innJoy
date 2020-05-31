@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-
+import axios from 'axios'
 import "./addpost.scss";
 
 const initialState = {
@@ -35,6 +35,10 @@ const AddPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(state);
+
+    axios.post("http://127.0.0.1:5000/test", state)
+    .then(res => console.log(res))
+    .catch(err => console.log(`${err}`))
   };
   let { title, description, image, content, category } = state;
 

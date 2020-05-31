@@ -22,70 +22,13 @@ import toefl from "../../img/logos/toefl.png";
 
 import "./Home.scss";
 
-const Home = () => {
+const Home = props => {
   const DUMMY_SLIDES = [
     { id: 1, image: "../../assets/img/fullscreen1.jpg" },
     { id: 2, image: "../../assets/img/edu.jpg" },
     { id: 3, image: "../../assets/img/fullscreen2.jpg" },
     { id: 4, image: "../../assets/img/fullscreen1.jpg" },
     { id: 5, image: "../../assets/img/fullscreen2.jpg" },
-  ];
-
-  const DUMMY_POSTS = [
-    {
-      id: 1,
-      title:
-        "Welcome to our blog post. Welcome to our blog post.Welcome to our blog post",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      image: "",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      time: "27 MAY 2020",
-      postId: "p1",
-      category: "english",
-    },
-    {
-      id: 2,
-      title: "Welcome to our blog post,",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      image: "",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      time: "27 MAY 2020",
-      postId: "p2",
-      category: "english",
-    },
-    {
-      id: 3,
-      title: "Welcome to 3 post",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      image: "",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      time: "27 MAY 2020",
-      postId: "p3",
-      category: "english",
-    },
-    {
-      id: 4,
-      title: "Welcome to our 4. blog post,",
-      description:
-        "4Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
-      image: "",
-      content:
-        "4Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.4",
-      time: "27 MAY 2020",
-      postId: "p4",
-      category: [
-        { id: "1", name: "russian" },
-        { id: "2", name: "english" },
-        { id: "3", name: "ielts" },
-        { id: "4", name: "sat" },
-      ],
-    },
   ];
 
   return (
@@ -211,7 +154,7 @@ const Home = () => {
             <hr />
           </div>
           <div className='section3-blog'>
-            {DUMMY_POSTS.slice(0, 6).map((post) => {
+            {props.posts.map((post) => {
               return (
                 <Link key={post.id} to={`/blog/${post.postId}`}>
                   <div className='post'>

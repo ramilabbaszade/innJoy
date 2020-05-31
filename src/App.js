@@ -1,10 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
+import axios from 'axios'
 
 import { AuthContext } from "./shared/context/auth-context";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
@@ -23,7 +24,29 @@ import AddCategory from "./components/Admin/pages/AddCategory";
 import AddSlider from "./components/Admin/pages/AddSlider";
 
 const App = () => {
+  const [posts, setPost] = useState([])
+  const [categories, setCategories] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    axios
+    .get("http://127.0.0.1:5000/blog")
+    .then(res=> setPost(res.data.posts))
+    .catch(error=> console.log(error))
+  },[])
+  useEffect(()=>{
+    axios
+    .get("http://127.0.0.1:5000/blog")
+    .then(res=> setCategories(res.data.categories))
+    .catch(error=> console.log(error))
+  },[])
+
+  // useEffect(()=>{
+  //   axios
+  //   .get("http://localhost:5000/admin")
+  //   .then(res=> setCategories(res.data))
+  //   .catch(error=> console.log(error))
+  // },[])
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -47,7 +70,7 @@ const App = () => {
           <UpdatePost />
         </Route>
         <Route path='/admin' exact>
-          <Admin />
+          <Admin posts={posts} categories={categories} />
         </Route>
         <Route path='/category/new' exact>
           <AddCategory />
@@ -65,7 +88,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path='/' exact>
-            <Home />
+            <Home posts={posts} />
           </Route>
         </Switch>
         <div>
@@ -73,10 +96,10 @@ const App = () => {
           <main>
             <Switch>
               <Route path='/blog' exact>
-                <Blog />
+                <Blog posts={posts} categories={categories} />
               </Route>
               <Route path='/blog/:postId' exact>
-                <Post />
+                <Post posts={posts} />
               </Route>
               <Route path='/courses' exact>
                 <Courses />
