@@ -1,11 +1,10 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
-import axios from 'axios'
 
 import { AuthContext } from "./shared/context/auth-context";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
@@ -20,33 +19,12 @@ import AddPost from "./components/Admin/pages/AddPost";
 import Admin from "./components/Admin/pages/Admin";
 import UpdatePost from "./components/Admin/pages/UpdatePost";
 import Login from "./components/Admin/pages/Login";
-import AddCategory from "./components/Admin/pages/AddCategory";
 import AddSlider from "./components/Admin/pages/AddSlider";
+import CategoryList from "./components/Admin/pages/CategoryList";
 
 const App = () => {
-  const [posts, setPost] = useState([])
-  const [categories, setCategories] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(()=>{
-    axios
-    .get("http://127.0.0.1:5000/blog")
-    .then(res=> setPost(res.data.posts))
-    .catch(error=> console.log(error))
-  },[])
-  useEffect(()=>{
-    axios
-    .get("http://127.0.0.1:5000/blog")
-    .then(res=> setCategories(res.data.categories))
-    .catch(error=> console.log(error))
-  },[])
-
-  // useEffect(()=>{
-  //   axios
-  //   .get("http://localhost:5000/admin")
-  //   .then(res=> setCategories(res.data))
-  //   .catch(error=> console.log(error))
-  // },[])
 
   const login = useCallback(() => {
     setIsLoggedIn(true);
@@ -70,10 +48,10 @@ const App = () => {
           <UpdatePost />
         </Route>
         <Route path='/admin' exact>
-          <Admin posts={posts} categories={categories} />
+          <Admin />
         </Route>
-        <Route path='/category/new' exact>
-          <AddCategory />
+        <Route path='/admin/categories' exact>
+          <CategoryList/>
         </Route>
         <Route path='/slider/new' exact>
           <AddSlider/>
@@ -88,7 +66,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path='/' exact>
-            <Home posts={posts} />
+            <Home />
           </Route>
         </Switch>
         <div>
@@ -96,10 +74,10 @@ const App = () => {
           <main>
             <Switch>
               <Route path='/blog' exact>
-                <Blog posts={posts} categories={categories} />
+                <Blog />
               </Route>
               <Route path='/blog/:postId' exact>
-                <Post posts={posts} />
+                <Post />
               </Route>
               <Route path='/courses' exact>
                 <Courses />
@@ -114,15 +92,6 @@ const App = () => {
                 <Login />
               </Route>
               {routes}
-              {/* <Route path='/post/new' exact>
-                <AddPost />
-              </Route>
-              <Route path='/post/:pid' exact>
-                <UpdatePost />
-              </Route>
-              <Route path='/admin' exact>
-                <Admin />
-              </Route> */}
               <Redirect to='/' />
             </Switch>
           </main>

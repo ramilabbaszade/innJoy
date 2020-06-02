@@ -68,7 +68,7 @@ const DUMMY_CATEGORIES = [
 
 const UpdatePost = () => {
   const postId = useParams().pid;
-  const loadedPosts = DUMMY_POSTS.find((p) => p.postId === postId);
+  const loadedPosts = DUMMY_POSTS.find((p) => p.id === postId);
   function reducer(state, { field, value }) {
     return {
       ...state,
@@ -77,6 +77,7 @@ const UpdatePost = () => {
   }
 
   const [state, dispatch] = useReducer(reducer, loadedPosts);
+  let { title, description, image, content, category } = state;
 
   const handleChange = (e) => {
     dispatch({
@@ -89,7 +90,6 @@ const UpdatePost = () => {
     e.preventDefault();
     console.log(state);
   };
-  let { title, description, image, content, category } = state;
 
 
   if (!loadedPosts) {

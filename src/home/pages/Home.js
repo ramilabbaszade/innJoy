@@ -19,17 +19,69 @@ import photo1 from "../../img/photos/entertain.jpg";
 import ielts from "../../img/logos/ielts.png";
 import sat from "../../img/logos/sat.png";
 import toefl from "../../img/logos/toefl.png";
+import image from '../../img/photos/edu.jpg'
+
 
 import "./Home.scss";
 
+const DUMMY_POSTS = [
+  {
+    id: 1,
+    title:
+      "Welcome to our blog post. Welcome to our blog post.Welcome to our blog post",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    image: image,
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    time: "27 MAY 2020",
+    postId: 'p1',
+    category: "english",
+  },
+  {
+    id: 2,
+    title: "Welcome to our blog post,",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    image: image,
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    time: "27 MAY 2020",
+    postId: 'p2',
+    category: "english",
+  },
+  {
+    id: 3,
+    title: "Welcome to 3 post",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    image: image,
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    time: "27 MAY 2020",
+    postId: 'p3',
+    category: "english",
+  },
+  {
+    id: 4,
+    title: "Welcome to our 4. blog post,",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    image: image,
+    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, assumenda.",
+    time: "27 MAY 2020",
+    postId: 'p4',
+    category: "english",
+  }
+];
+
+const DUMMY_SLIDES = [
+  { id: 1, image: "../../assets/img/fullscreen1.jpg" },
+  { id: 2, image: "../../assets/img/edu.jpg" },
+  { id: 3, image: "../../assets/img/fullscreen2.jpg" },
+  { id: 4, image: "../../assets/img/fullscreen1.jpg" },
+  { id: 5, image: "../../assets/img/fullscreen2.jpg" },
+];
+
+
 const Home = props => {
-  const DUMMY_SLIDES = [
-    { id: 1, image: "../../assets/img/fullscreen1.jpg" },
-    { id: 2, image: "../../assets/img/edu.jpg" },
-    { id: 3, image: "../../assets/img/fullscreen2.jpg" },
-    { id: 4, image: "../../assets/img/fullscreen1.jpg" },
-    { id: 5, image: "../../assets/img/fullscreen2.jpg" },
-  ];
 
   return (
     <div className='home'>
@@ -154,7 +206,7 @@ const Home = props => {
             <hr />
           </div>
           <div className='section3-blog'>
-            {props.posts.map((post) => {
+            {DUMMY_POSTS.map((post) => {
               return (
                 <Link key={post.id} to={`/blog/${post.postId}`}>
                   <div className='post'>

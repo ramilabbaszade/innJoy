@@ -17,9 +17,9 @@ const PostsList = (props) => {
       {props.posts.map((post) => {
         return (
           <PostItem
-            key={post._id}
-            id={post._id}
-            image={post.post_image}
+            key={post.id}
+            id={post.id}
+            image={post.image}
             title={post.title}
             description={post.description}
             time={post.date}

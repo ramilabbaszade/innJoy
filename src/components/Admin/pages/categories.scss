@@ -1,0 +1,8 @@
+@import "../../../styles/mixins";
+@import "../../../styles/_variables.scss";
+
+
+.categories{
+    @include container;
+    display: grid;
+}

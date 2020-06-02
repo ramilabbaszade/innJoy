@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import {AuthContext} from '../../../shared/context/auth-context' 
 
-import "./admin.scss";
+import "./categories.scss";
 
 const Login = () => {
   const auth = useContext(AuthContext)
@@ -13,7 +13,6 @@ const Login = () => {
     e.preventDefault();
     auth.login()
     console.log("Login successfull");
-    window.location.href = '/admin'
   };
 
 
